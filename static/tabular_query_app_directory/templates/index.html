@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Query System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Interactive Table Query System</h1>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4>Data Table</h4>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover" id="data-table">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for col in columns %}
+                            <th>{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in table %}
+                        <tr>
+                            {% for col in columns %}
+                            <td>{{ row[col] }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h4>Query the Table</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="query-form" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" id="query-input" class="form-control" placeholder="Enter your query or command...">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                        <div id="examples" class="mb-3">
+                            <h5>Example Queries:</h5>
+                            <ul>
+                                <li><code>What is the average age of actors?</code> (Natural language)</li>
+                                <li><code>SELECT Actors, Age, Number of movies WHERE Age > 50</code> (SQL-like)</li>
+                                <li><code>SELECT SUM(Number of movies) AS Total</code> (Mathematical)</li>
+                                <li><code>SELECT Age + Number of movies AS Combined</code> (Arithmetic)</li>
+                                <li><code>add</code> (Add a new actor)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h4>Actions</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <button id="add-btn" class="btn btn-success">Add New Actor</button>
+                            <button id="reset-btn" class="btn btn-warning">Reset Table</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4" id="results-card" style="display: none;">
+            <div class="card-header bg-dark text-white">
+                <h4>Query Results</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-secondary">
+                    <strong>Query:</strong> <span id="query-text"></span>
+                </div>
+                <div id="result-container">
+                    <div id="text-result" class="alert alert-success" style="display: none;"></div>
+                    <div id="table-result" style="display: none;">
+                        <table class="table table-bordered table-striped" id="result-table">
+                            <thead class="table-dark"></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
