@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Query System</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Natural Language Table Query</h1>
+            <p>Upload a CSV file and query it using natural language</p>
+        </header>
+
+        <main>
+            <section id="upload-section" class="card">
+                <h2>Upload CSV File</h2>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file-upload">Select a CSV file:</label>
+                        <input type="file" id="file-upload" name="file" accept=".csv" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Upload</button>
+                </form>
+                <div id="upload-status" class="status-message"></div>
+            </section>
+
+            <section id="preview-section" class="card hidden">
+                <h2>Table Preview</h2>
+                <div id="table-preview"></div>
+                <div class="preview-info">
+                    <span id="row-count"></span>
+                </div>
+            </section>
+
+            <section id="query-section" class="card hidden">
+                <h2>Query Your Data</h2>
+                <form id="query-form">
+                    <div class="form-group">
+                        <label for="query-input">Enter your query:</label>
+                        <input type="text" id="query-input" name="query" required 
+                               placeholder="e.g., What is the email for ID 638? or Show details of ID 123">
+                    </div>
+                    <button type="submit" class="btn primary-btn">Submit Query</button>
+                </form>
+                <div id="query-status" class="status-message"></div>
+                <div id="query-result"></div>
+            </section>
+
+            <section id="examples-section" class="card">
+                <h2>Example Queries</h2>
+                <ul>
+                    <li><strong>Show details of [ID]</strong> - Shows all information for a specific ID</li>
+                    <li><strong>What is the [column] for [ID]?</strong> - Finds a specific value</li>
+                    <li><strong>How many rows have [value] in [column]?</strong> - Counts matching rows</li>
+                    <li><strong>What is the highest [column]?</strong> - Finds maximum value</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', path='/js/main.js') }}"></script>
+</body>
+</html>
