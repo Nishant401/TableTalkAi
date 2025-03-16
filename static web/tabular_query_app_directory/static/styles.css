@@ -1,0 +1,120 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+main h2 {
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+main p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px; /* Increase button size */
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px; /* Increase font size */
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.stats div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+}
+
+.stats h3 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.stats p {
+    color: #666;
+    font-size: 18px;
+}
+
+/* Add different colors for the navigation links */
+nav ul li a[href="{{ url_for('home') }}"] {
+    background-color: #ff5722; /* Home - Orange */
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul li a[href="{{ url_for('query_input') }}"] {
+    background-color: #2196f3; /* Query Input - Blue */
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul li a[href="{{ url_for('add_form') }}"] {
+    background-color: #8bc34a; /* Add Data - Light Green */
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}

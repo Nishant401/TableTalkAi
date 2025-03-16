@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabletalk AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Tabletalk AI</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('query_input') }}">Query Input</a></li>
+                <li><a href="{{ url_for('add_form') }}">Add Data</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Effortless data interaction, simplified for you!</h2>
+            <p>Secure data storage, safeguarding your information from unauthorized access.</p>
+            <a href="{{ url_for('query_input') }}" class="button">Explore now</a>
+        </section>
+        <section>
+            <div class="stats">
+                <div>
+                    <h3>Engaged users</h3>
+                    <p>Effortless</p>
+                </div>
+                <div>
+                    <h3>Queries processed</h3>
+                    <p>Vast data</p>
+                </div>
+                <div>
+                    <h3>Data uploaded</h3>
+                    <p>Smooth</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
